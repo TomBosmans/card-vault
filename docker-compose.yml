@@ -1,0 +1,15 @@
+services:
+  docs:
+    container_name: ${APP_NAME}_docs
+    build:
+      context: docs
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./docs:/docs
+    ports:
+      - ${DOCS_PORT}:3000
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
