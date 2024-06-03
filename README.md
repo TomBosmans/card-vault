@@ -1,7 +1,8 @@
 # Card Vault
 
 ## Setup Instructions
-Before you begin, ensure that you have **Docker** installed on your system.
+> [!NOTE]
+> Before you begin, ensure that you have **Docker** installed on your system.
 
 First we need to build, pull and start the containers by running:
 ```sh
