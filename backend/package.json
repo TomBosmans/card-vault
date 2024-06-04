@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "test": "node --test **/*.spec.ts",
     "start:dev": "node index.ts"
   },
@@ -14,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TomBosmans/card-vault/issues"
   },
-  "homepage": "https://tombosmans.github.io/card-vault/#/"
+  "homepage": "https://tombosmans.github.io/card-vault/#/",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }
