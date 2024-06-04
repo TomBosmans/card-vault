@@ -29,3 +29,17 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
+
+  postgres:
+    container_name: ${APP_NAME}_postgres
+    restart: unless-stopped
+    image: postgres:${POSTGRES_VERSION}
+    env_file:
+      - .env
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
