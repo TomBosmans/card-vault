@@ -1,4 +1,19 @@
 services:
+  backend:
+    container_name: ${APP_NAME}_backend
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/backend
+      - ./.env:/backend/.env
+    ports:
+      - ${BACKEND_PORT}:3100
+    stdin_open: true
+    restart: unless-stopped
+
   docs:
     container_name: ${APP_NAME}_docs
     build:
