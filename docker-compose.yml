@@ -8,7 +8,7 @@ services:
       - .env
     volumes:
       - ./backend:/backend
-      - ./.env:/backend/.env
+      - ./.env:/.env
     ports:
       - ${BACKEND_PORT}:3100
     stdin_open: true
@@ -23,7 +23,7 @@ services:
       - .env
     volumes:
       - ./docs:/docs
-      - ./.env:/backend/.env
+      - ./.env:/.env
     ports:
       - ${DOCS_PORT}:3000
     stdin_open: true
