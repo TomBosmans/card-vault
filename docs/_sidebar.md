@@ -1,4 +1,4 @@
-* [Get started](/)
+* [Introduction](/README.md)
 * **Data model**
   [ERD](/data-model/ERD.md)
 * **Methadologies**
