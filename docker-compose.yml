@@ -9,6 +9,7 @@ services:
     volumes:
       - ./backend:/backend
       - ./.env:/.env
+      - ./tsconfig.base.json:/tsconfig.base.json
     ports:
       - ${BACKEND_PORT}:3100
     stdin_open: true
