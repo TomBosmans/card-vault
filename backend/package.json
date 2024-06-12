@@ -4,8 +4,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node -r ts-node/register --test **/*.spec.ts",
-    "start:dev": "node -r ts-node/register index.ts"
+    "test": "node --import tsx/esm --test **/*.spec.ts",
+    "start:dev": "node --import tsx/esm index.ts"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://tombosmans.github.io/card-vault/#/",
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "tsx": "^4.15.2",
     "typescript": "^5.4.5"
   }
 }
