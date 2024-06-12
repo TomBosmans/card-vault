@@ -1,4 +1,4 @@
-# Trunk Based Development
+# Trunk-Based Development
 
 Trunk-based development (TBD) is a software development strategy where all developers collaborate on code in a single branch called "trunk" (or "main"). Instead of creating long-lived feature branches, developers commit changes directly to the trunk or create short-lived branches that are quickly merged back into the trunk. This approach aims to reduce integration challenges and improve software delivery speed and quality.
 

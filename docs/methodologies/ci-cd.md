@@ -1,4 +1,4 @@
-# Continuous Integration/Continuous Deployment
+# CI/CD
 
 Continuous Integration (CI) and Continuous Deployment (CD) are software development practices aimed at improving the development process, increasing efficiency, and ensuring software quality.
 
