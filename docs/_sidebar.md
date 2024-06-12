@@ -1,4 +1,5 @@
 * [Get started](/)
 * [ERD](ERD.md)
 * **Methadologies**
-  [Conventional commits](/methadologies/conventional-commits.md)
+  * [Conventional commits](/methadologies/conventional-commits.md)
+  * [Trunk Based Development](/methadologies/trunk-based-development.md)
