@@ -13,6 +13,8 @@ After this you can open the docs locally in your browser by running:
 ```sh
 make open service=docs
 ```
+Or you can go to the latest **main** branch docs on [**github pages**](https://tombosmans.github.io/card-vault/#/)
+
 
 If you want to use the githooks you can run:
 ```sh
@@ -23,5 +25,3 @@ And when you want to stop using githooks:
 ```
 make remove-githooks
 ```
-
-Or you can go to the latest **main** branch docs on [**github pages**](https://tombosmans.github.io/card-vault/#/)
