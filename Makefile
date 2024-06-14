@@ -26,3 +26,6 @@ open:
 
 use-githooks:
 	git config core.hooksPath .githooks
+
+remove-githooks:
+	git config --unset core.hooksPath

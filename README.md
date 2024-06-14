@@ -19,4 +19,9 @@ If you want to use the githooks you can run:
 make use-githooks
 ```
 
+And when you want to stop using githooks:
+```
+make remove-githooks
+```
+
 Or you can go to the latest **main** branch docs on [**github pages**](https://tombosmans.github.io/card-vault/#/)
