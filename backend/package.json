@@ -6,6 +6,9 @@
   "scripts": {
     "build": "tsc",
     "test": "node --import tsx/esm --test **/*.spec.ts",
+    "format": "biome format .",
+    "lint": "biome lint .",
+    "check": "biome check .",
     "start:dev": "node --import tsx/esm index.ts"
   },
   "repository": {
@@ -18,6 +21,7 @@
   },
   "homepage": "https://tombosmans.github.io/card-vault/#/",
   "devDependencies": {
+    "@biomejs/biome": "1.8.1",
     "@types/node": "^20.14.2",
     "tsx": "^4.15.2",
     "typescript": "^5.4.5"

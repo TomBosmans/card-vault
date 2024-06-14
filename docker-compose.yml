@@ -10,6 +10,7 @@ services:
       - ./backend:/backend
       - ./.env:/.env
       - ./tsconfig.base.json:/tsconfig.base.json
+      - ./biome.json:/biome.json
     ports:
       - ${BACKEND_PORT}:3100
     stdin_open: true
