@@ -23,3 +23,6 @@ shell:
 
 open:
 	open http://localhost:$($(shell echo ${service}_PORT | tr '[:lower:]' '[:upper:]'))
+
+use-githooks:
+	git config core.hooksPath .githooks

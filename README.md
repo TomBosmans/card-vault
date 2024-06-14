@@ -14,4 +14,9 @@ After this you can open the docs locally in your browser by running:
 make open service=docs
 ```
 
+If you want to use the githooks you can run:
+```sh
+make use-githooks
+```
+
 Or you can go to the latest **main** branch docs on [**github pages**](https://tombosmans.github.io/card-vault/#/)
