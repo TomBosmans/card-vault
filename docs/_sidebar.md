@@ -1,6 +1,4 @@
-* [Introduction](/README.md)
-* **Data model**
-  [ERD](/data-model/ERD.md)
+* **[**Data model**](/data-model/ERD.md)**
 * **Methadologies**
   * [Conventional Commits](/methodologies/conventional-commits.md)
   * [Trunk-Based Development](/methodologies/trunk-based-development.md)
