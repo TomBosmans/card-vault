@@ -9,7 +9,7 @@
     "format": "biome format .",
     "lint": "biome lint .",
     "check": "biome check .",
-    "start:dev": "node --import tsx/esm index.ts"
+    "start:dev": "nodemon --watch 'src/**/*' --ext 'ts,json' --exec 'node --import tsx/esm src/main.ts'"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
     "@types/node": "^20.14.2",
+    "nodemon": "^3.1.3",
     "tsx": "^4.15.2",
     "typescript": "^5.4.5"
   }
