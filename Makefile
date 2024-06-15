@@ -29,3 +29,6 @@ use-githooks:
 
 remove-githooks:
 	git config --unset core.hooksPath
+
+changelog:
+	npx conventional-changelog-cli -p conventionalcommits -i docs/CHANGELOG.md -s -r 0

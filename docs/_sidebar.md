@@ -6,3 +6,4 @@
   * [Trunk-Based Development](/methodologies/trunk-based-development.md)
   * [Monorepo](/methodologies/monorepo.md)
   * [CI/CD](/methodologies/ci-cd.md)
+* **[**CHANGELOG**](/CHANGELOG.md)**
