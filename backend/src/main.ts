@@ -6,6 +6,7 @@ import { jsonSchemaTransform } from "fastify-type-provider-zod"
 import z from "zod"
 import packageJSON from "../package.json"
 import configFactory, { type Config } from "./config/config.factory"
+import healthRoute from "./health/health.route"
 import loggerFactory, { type Logger } from "./logger/logger.factory"
 import serverFactory from "./server/server.factory"
 
@@ -44,6 +45,7 @@ async function run() {
   diContainerClassic.register({ config: asValue(config) })
   diContainerClassic.register({ logger: asValue(logger) })
 
+  healthRoute(server)
   server.route({
     url: "/",
     method: "GET",
