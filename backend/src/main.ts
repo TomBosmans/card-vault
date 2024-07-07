@@ -1,8 +1,9 @@
 import { diContainerClassic, fastifyAwilixPlugin } from "@fastify/awilix"
 import { asValue } from "awilix"
-import Fastify from "fastify"
+import z from "zod"
 import configFactory, { type Config } from "./config/config.factory"
 import loggerFactory, { type Logger } from "./logger/logger.factory"
+import serverFactory from "./server/server.factory"
 
 declare module "@fastify/awilix" {
   interface Cradle {
@@ -14,9 +15,9 @@ declare module "@fastify/awilix" {
 async function run() {
   const logger = loggerFactory()
   const config = configFactory()
-  const app = Fastify({ logger })
+  const server = serverFactory({ logger })
 
-  await app.register(fastifyAwilixPlugin, {
+  await server.register(fastifyAwilixPlugin, {
     injectionMode: "CLASSIC",
     disposeOnClose: true,
     disposeOnResponse: true,
@@ -26,9 +27,14 @@ async function run() {
   diContainerClassic.register({ config: asValue(config) })
   diContainerClassic.register({ logger: asValue(logger) })
 
-  app.route({
+  server.route({
     url: "/",
     method: "GET",
+    schema: {
+      response: {
+        200: z.string().url(),
+      },
+    },
     handler: async (request) => {
       const config = request.diScope.resolve("config")
       const logger = request.diScope.resolve("logger")
@@ -37,11 +43,11 @@ async function run() {
     },
   })
 
-  await app.ready()
-  app.listen({ port: 3100, host: "0.0.0.0" }, (err) => {
+  await server.ready()
+  server.listen({ port: 3100, host: "0.0.0.0" }, (err) => {
     if (!err) return
 
-    app.log.fatal(err)
+    server.log.fatal(err)
     process.exit(1)
   })
 }
