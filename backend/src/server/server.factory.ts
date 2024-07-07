@@ -8,6 +8,7 @@ import { jsonSchemaTransform } from "fastify-type-provider-zod"
 import packageJSON from "../../package.json"
 import configFactory from "../config/config.factory"
 import loggerFactory from "../logger/logger.factory"
+import router from "../router"
 import type Server from "./server.type"
 
 type Params = {
@@ -50,6 +51,8 @@ export default async function serverFactory({
 
   server.diContainer.register({ config: asValue(config) })
   server.diContainer.register({ logger: asValue(logger) })
+
+  for (const route of router) route(server)
 
   return server
 }

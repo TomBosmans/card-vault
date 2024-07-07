@@ -1,6 +1,5 @@
 import z from "zod"
 import type { Config } from "./config/config.factory"
-import healthRoute from "./health/health.route"
 import type { Logger } from "./logger/logger.factory"
 import serverFactory from "./server/server.factory"
 
@@ -13,8 +12,6 @@ declare module "@fastify/awilix" {
 
 async function run() {
   const server = await serverFactory()
-
-  healthRoute(server)
 
   server.route({
     url: "/",
