@@ -1,7 +1,9 @@
 import Fastify from "fastify"
+import loggerFactory from "./logger/logger.factory"
 
 async function run() {
-  const app = Fastify()
+  const logger = loggerFactory()
+  const app = Fastify({ logger })
 
   app.route({
     url: "/",
