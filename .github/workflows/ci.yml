@@ -21,9 +21,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  codelint:
+  build-backend:
     runs-on: ubuntu-latest
     needs: commitlint
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install packages
+        run: npm --prefix backend ci
+      - name: build
+        run: npm --prefix backend run build
+
+  lint-backend:
+    runs-on: ubuntu-latest
+    needs: build-backend
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,5 +45,20 @@ jobs:
         uses: biomejs/setup-biome@v2
         with:
           version: latest
-      - name: Run Biome
+      - name: lint
         run: biome ci .
+
+  test-backend:
+    runs-on: ubuntu-latest
+    needs: 
+      - build-backend
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install packages
+        run: npm --prefix backend ci
+      - name: test
+        run: npm --prefix backend test
