@@ -1,8 +1,8 @@
-import Fastify from "fastify"
-import loggerFactory, { type Logger } from "./logger/logger.factory"
-import configFactory, { type Config } from "./config/config.factory"
 import { diContainerClassic, fastifyAwilixPlugin } from "@fastify/awilix"
 import { asValue } from "awilix"
+import Fastify from "fastify"
+import configFactory, { type Config } from "./config/config.factory"
+import loggerFactory, { type Logger } from "./logger/logger.factory"
 
 async function run() {
   const logger = loggerFactory()
