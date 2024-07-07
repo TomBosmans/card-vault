@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://tombosmans.github.io/card-vault/#/",
   "author": "tbosmans",
+  "description": "A database for all the amazing card games you love.",
   "type": "module",
   "repository": {
     "type": "git",
