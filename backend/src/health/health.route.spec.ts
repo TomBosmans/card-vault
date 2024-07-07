@@ -5,7 +5,7 @@ import healthRoute from "./health.route"
 
 describe("GET /health", () => {
   it("responds with status 200", async () => {
-    const server = serverTestFactory()
+    const server = await serverTestFactory()
     healthRoute(server)
 
     const response = await server.inject({
@@ -17,7 +17,7 @@ describe("GET /health", () => {
   })
 
   it("responds with body { status: ok }", async () => {
-    const server = serverTestFactory()
+    const server = await serverTestFactory()
     healthRoute(server)
 
     const response = await server.inject({

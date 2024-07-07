@@ -1,10 +1,6 @@
-import Fastify from "fastify"
-import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
+import serverFactory from "./server.factory"
 
-export default function serverTestFactory() {
-  const server = Fastify({ logger: false })
-  server.setValidatorCompiler(validatorCompiler)
-  server.setSerializerCompiler(serializerCompiler)
-
+export default async function serverTestFactory() {
+  const server = await serverFactory({ enableLogger: false, enableSwagger: false })
   return server
 }
