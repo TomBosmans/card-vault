@@ -25,6 +25,6 @@ describe("GET /health", () => {
       url: "/health",
     })
 
-    assert.deepEqual(JSON.parse(response.body), { status: "ok" })
+    assert.deepEqual(response.json(), { status: "ok" })
   })
 })
