@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "@fastify/awilix": "^5.1.0",
+    "@fastify/swagger": "^8.14.0",
+    "@scalar/fastify-api-reference": "^1.24.36",
     "awilix": "^10.0.2",
     "fastify": "^4.28.1",
     "fastify-type-provider-zod": "^2.0.0",
