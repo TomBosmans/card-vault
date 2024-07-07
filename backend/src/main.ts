@@ -4,6 +4,13 @@ import Fastify from "fastify"
 import configFactory, { type Config } from "./config/config.factory"
 import loggerFactory, { type Logger } from "./logger/logger.factory"
 
+declare module "@fastify/awilix" {
+  interface Cradle {
+    config: Config
+    logger: Logger
+  }
+}
+
 async function run() {
   const logger = loggerFactory()
   const config = configFactory()
@@ -23,8 +30,8 @@ async function run() {
     url: "/",
     method: "GET",
     handler: async (request) => {
-      const config = request.diScope.resolve<Config>("config")
-      const logger = request.diScope.resolve<Logger>("logger")
+      const config = request.diScope.resolve("config")
+      const logger = request.diScope.resolve("logger")
       logger.info("log from the root route")
       return config.postgres.url
     },
