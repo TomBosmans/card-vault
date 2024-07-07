@@ -1,13 +1,11 @@
 import assert from "node:assert"
 import { describe, it } from "node:test"
-import loggerFactory from "../logger/logger.factory"
-import serverFactory from "../server/server.factory"
+import serverTestFactory from "../server/server.test-factory"
 import healthRoute from "./health.route"
 
 describe("GET /health", () => {
   it("responds with status 200", async () => {
-    const logger = loggerFactory()
-    const server = serverFactory({ logger })
+    const server = serverTestFactory()
     healthRoute(server)
 
     const response = await server.inject({
@@ -19,8 +17,7 @@ describe("GET /health", () => {
   })
 
   it("responds with body { status: ok }", async () => {
-    const logger = loggerFactory()
-    const server = serverFactory({ logger })
+    const server = serverTestFactory()
     healthRoute(server)
 
     const response = await server.inject({
