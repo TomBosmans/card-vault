@@ -1,6 +1,6 @@
 import assert from "node:assert"
 import { describe, it } from "node:test"
-import serverTestFactory from "../server/server.test-factory"
+import serverTestFactory from "src/server/server.test-factory"
 
 describe("GET /health", () => {
   it("responds with status 200", async () => {

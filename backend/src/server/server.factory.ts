@@ -5,10 +5,10 @@ import { asValue } from "awilix"
 import Fastify from "fastify"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import { jsonSchemaTransform } from "fastify-type-provider-zod"
+import configFactory from "src/config/config.factory"
+import loggerFactory from "src/logger/logger.factory"
+import router from "src/router"
 import packageJSON from "../../package.json"
-import configFactory from "../config/config.factory"
-import loggerFactory from "../logger/logger.factory"
-import router from "../router"
 import type Server from "./server.type"
 
 type Params = {

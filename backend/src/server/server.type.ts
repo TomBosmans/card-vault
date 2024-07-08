@@ -5,7 +5,7 @@ import type {
   RawServerDefault,
 } from "fastify"
 import type { ZodTypeProvider } from "fastify-type-provider-zod"
-import type { Logger } from "../logger/logger.factory"
+import type { Logger } from "src/logger/logger.factory"
 
 type Server = FastifyInstance<
   RawServerDefault,

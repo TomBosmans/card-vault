@@ -1,5 +1,5 @@
+import type Server from "src/server/server.type"
 import { z } from "zod"
-import type Server from "../server/server.type"
 
 const OK = "ok" as const
 
