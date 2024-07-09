@@ -19,7 +19,12 @@
     "lint": "biome lint .",
     "check": "biome check .",
     "start:dev": "nodemon --watch 'src/**/*' --ext 'ts,json' --exec 'node --import tsx/esm src/main.ts'",
-    "start:prod": "node dist/main.js"
+    "start:prod": "node dist/main.js",
+    "db:migration:create": "tsx src/scripts/db-migration-create.ts",
+    "db:migration:up": "tsx src/scripts/db-migration-up.ts",
+    "db:migration:down": "tsx src/scripts/db-migration-down.ts",
+    "db:types:generate": "tsx src/scripts/db-migration-generate.ts",
+    "db:structure:load": "tsx src/scripts/db-structure-load.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
