@@ -11,7 +11,6 @@ services:
       - ./.env:/.env
       - ./tsconfig.base.json:/tsconfig.base.json
       - ./biome.json:/biome.json
-      - ./nodemon.json:/nodemon.json
     ports:
       - ${BACKEND_PORT}:3100
     stdin_open: true
