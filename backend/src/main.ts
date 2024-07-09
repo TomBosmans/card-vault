@@ -1,5 +1,6 @@
 import z from "zod"
 import type { Config } from "./config/config.factory"
+import type Database from "./database/database.type"
 import type { Logger } from "./logger/logger.factory"
 import serverFactory from "./server/server.factory"
 
@@ -7,6 +8,7 @@ declare module "@fastify/awilix" {
   interface Cradle {
     config: Config
     logger: Logger
+    db: Database
   }
 }
 

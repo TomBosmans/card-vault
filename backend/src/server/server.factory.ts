@@ -6,6 +6,7 @@ import Fastify from "fastify"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import { jsonSchemaTransform } from "fastify-type-provider-zod"
 import configFactory from "src/config/config.factory"
+import databaseFactory from "src/database/database.factory"
 import loggerFactory from "src/logger/logger.factory"
 import router from "src/router"
 import packageJSON from "../../package.json"
@@ -22,6 +23,7 @@ export default async function serverFactory({
 }: Params = {}): Promise<Server> {
   const config = configFactory()
   const logger = loggerFactory()
+  const db = databaseFactory({ config, logger })
   const server = Fastify({ logger: enableLogger && logger })
 
   server.setValidatorCompiler(validatorCompiler)
@@ -51,6 +53,7 @@ export default async function serverFactory({
 
   server.diContainer.register({ config: asValue(config) })
   server.diContainer.register({ logger: asValue(logger) })
+  server.diContainer.register({ db: asValue(db) })
 
   for (const route of router) route(server)
 
