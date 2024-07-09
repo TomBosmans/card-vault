@@ -32,3 +32,6 @@ remove-githooks:
 
 changelog:
 	npx conventional-changelog-cli -p conventionalcommits -i docs/CHANGELOG.md -s -r 0
+
+psql:
+	@docker compose exec postgres sh -c "su - postgres -c 'psql $(POSTGRES_DATABASE)'"
