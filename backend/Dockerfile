@@ -5,4 +5,4 @@ EXPOSE 3100
 RUN npm install -g npm@latest
 RUN apk add --no-cache postgresql-client
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "start"]
