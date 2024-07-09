@@ -13,7 +13,8 @@
     "url": "https://github.com/TomBosmans/card-vault/issues"
   },
   "scripts": {
-    "build": "tsup-node --format esm src/*",
+    "build": "tsup-node --format esm --no-splitting --loader '.template=copy' --loader '.sql=copy' src/*",
+    "type:check": "tsc --noEmit",
     "test": "tsx --test **/*.spec.ts",
     "check": "biome check .",
     "start": "nodemon --watch 'src/**/*' --ext 'ts,json' --exec 'tsx src/main.ts'",
