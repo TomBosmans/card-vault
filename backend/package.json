@@ -13,7 +13,7 @@
     "url": "https://github.com/TomBosmans/card-vault/issues"
   },
   "scripts": {
-    "build": "tsup-node --format esm src/main.ts",
+    "build": "tsup-node --format esm src/*",
     "test": "node --import tsx/esm --test **/*.spec.ts",
     "format": "biome format .",
     "lint": "biome lint .",
