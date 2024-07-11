@@ -1,12 +1,13 @@
 import { fastifyAwilixPlugin as Awilix } from "@fastify/awilix"
 import Swagger from "@fastify/swagger"
 import Scalar from "@scalar/fastify-api-reference"
-import { asValue } from "awilix"
+import { type Constructor, asClass, asValue } from "awilix"
 import Fastify from "fastify"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"
 import { jsonSchemaTransform } from "fastify-type-provider-zod"
 import configFactory from "src/config/config.factory"
 import databaseFactory from "src/database/database.factory"
+import queries from "src/database/queries"
 import loggerFactory from "src/logger/logger.factory"
 import router from "src/router"
 import packageJSON from "../../package.json"
@@ -54,6 +55,10 @@ export default async function serverFactory({
   server.diContainer.register({ config: asValue(config) })
   server.diContainer.register({ logger: asValue(logger) })
   server.diContainer.register({ db: asValue(db) })
+
+  for (const [key, value] of Object.entries(queries)) {
+    server.diContainer.register({ [key]: asClass(value as Constructor<unknown>) })
+  }
 
   for (const route of router) route(server)
 

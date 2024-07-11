@@ -1,15 +1,23 @@
+import type { Constructor } from "awilix"
 import z from "zod"
 import type { Config } from "./config/config.factory"
 import type Database from "./database/database.type"
+import type queries from "./database/queries"
 import type { Logger } from "./logger/logger.factory"
 import serverFactory from "./server/server.factory"
 
+type Instances<T extends Record<string, Constructor<unknown>>> = {
+  [K in keyof T]: InstanceType<T[K]>
+}
+
+type ServerCradle = Instances<typeof queries> & {
+  config: Config
+  logger: Logger
+  db: Database
+}
+
 declare module "@fastify/awilix" {
-  interface Cradle {
-    config: Config
-    logger: Logger
-    db: Database
-  }
+  interface Cradle extends ServerCradle {}
 }
 
 async function run() {
