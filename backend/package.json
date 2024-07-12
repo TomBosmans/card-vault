@@ -45,6 +45,7 @@
     "fastify": "^4.28.1",
     "fastify-type-provider-zod": "^2.0.0",
     "kysely": "^0.27.4",
+    "lucia": "^3.2.0",
     "pg": "^8.12.0",
     "remeda": "^2.5.0",
     "zod": "^3.23.8"
