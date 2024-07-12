@@ -11,6 +11,8 @@ services:
       - ./.env:/.env
       - ./tsconfig.base.json:/tsconfig.base.json
       - ./biome.json:/biome.json
+      - /var/run/docker.sock:/var/run/docker.sock
+
     ports:
       - ${BACKEND_PORT}:3100
     stdin_open: true
