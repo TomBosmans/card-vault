@@ -3,7 +3,7 @@ import { z } from "zod"
 
 const OK = "ok" as const
 
-export default function healthRoute(server: Server) {
+export default function healthRoutes(server: Server) {
   return server.route({
     url: "/health",
     method: "GET",

@@ -1,13 +1,7 @@
-import configFactory from "src/config/config.factory"
-import databaseFactory from "src/database/database.factory"
-import loggerFactory from "src/logger/logger.factory"
+import type { Cradle } from "@fastify/awilix"
 import Migrator from "./migrator"
 
-export default function migratorFactory() {
-  const config = configFactory()
-  const logger = loggerFactory()
-  const db = databaseFactory({ config, logger })
-
+export default function migratorFactory({ config, logger, db }: Cradle) {
   const migrator = new Migrator({
     db,
     logger,

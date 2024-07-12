@@ -7,9 +7,10 @@ import type { Logger } from "src/logger/logger.factory"
 type Params = {
   config: Config
   logger: Logger
+  enableLogger?: boolean
 }
 
-export default function databaseFactory({ config, logger }: Params) {
+export default function databaseFactory({ config, logger, enableLogger = true }: Params) {
   const dialect = new PostgresDialect({
     pool: new pg.Pool({
       database: config.postgres.database,
@@ -25,6 +26,7 @@ export default function databaseFactory({ config, logger }: Params) {
     dialect,
     plugins: [new CamelCasePlugin()],
     log: (event) => {
+      if (!enableLogger) return
       if (event.level !== "query") return
 
       logger.info(

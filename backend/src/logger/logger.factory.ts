@@ -5,7 +5,7 @@ export type Logger = ReturnType<typeof loggerFactory>
 
 export default function loggerFactory() {
   const logger = pino(
-    { redact: { paths: ["password"], censor: "***" } },
+    { redact: { paths: ["password"], censor: "***" }, level: "error" },
     pino.transport({ targets: [stdoutTransport] }),
   )
   return logger

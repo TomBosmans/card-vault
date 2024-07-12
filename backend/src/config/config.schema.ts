@@ -7,6 +7,7 @@ const configSchema = z
     POSTGRES_PORT: z.coerce.number(),
     POSTGRES_PASSWORD: z.string().transform((pw) => (pw.length > 1 ? pw : null)),
     POSTGRES_DATABASE: z.string(),
+    POSTGRES_VERSION: z.string(),
     POSTGRES_POOL_MAX: z.coerce.number(),
   })
   .transform((env) => ({
@@ -14,6 +15,7 @@ const configSchema = z
       user: env.POSTGRES_USER,
       host: env.POSTGRES_HOST,
       port: env.POSTGRES_PORT,
+      version: env.POSTGRES_VERSION,
       password: env.POSTGRES_PASSWORD,
       database: env.POSTGRES_DATABASE,
       pool: {

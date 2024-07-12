@@ -4,7 +4,7 @@ import type Database from "src/database/database.type"
 import whereClause, { type Where } from "../clauses/where.clause"
 
 export type DeleteQueryParams<Table extends keyof DB> = {
-  where: Where<Table>
+  where?: Where<Table>
 }
 
 export default class DeleteQuery<Table extends keyof DB> {
