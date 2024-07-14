@@ -22,6 +22,7 @@ SET row_security = off;
 
 COPY public.kysely_migration (name, "timestamp") FROM stdin;
 20240709T181958-add-users-table	2024-07-09T18:36:43.014Z
+20240714T175417-add-sessions-table	2024-07-14T18:01:55.522Z
 \.
 
 

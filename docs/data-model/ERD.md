@@ -10,6 +10,15 @@ erDiagram
     string password_hash
     boolean email_verified
     string two_factor_secret
+    timestamptz created_at
+    timestamptz updated_at
+  }
+
+  sessions {
+    uuid id PK
+    uuid user_id FK
+    timestamptz expires_at
+    boolean fresh
   }
 
   email_verification_codes {
@@ -17,15 +26,16 @@ erDiagram
     uuid user_id FK
     string code
     string email
-    date expires_at
+    timestamptz expires_at
   }
 
   password_reset_tokens {
     string token_hash PK
     uuid user_id FK
-    date expires_at
+    timestamptz expires_at
   }
 
   users ||--o| email_verification_codes : foreign_key
   users ||--o| password_reset_tokens : foreign_key
+  users ||--o| sessions : foreign_key
 ```
