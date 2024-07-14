@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-import migratorFactory from "src/migrator/migrator.factory"
+import serverFactory from "src/server/server.factory"
 
 async function run() {
-  const migrator = migratorFactory()
+  const server = await serverFactory()
+  const migrator = server.diContainer.resolve("migrator")
+
   await migrator.migrateDown()
   await migrator.db.destroy()
 }

@@ -9,6 +9,7 @@ import configFactory from "src/config/config.factory"
 import databaseFactory from "src/database/database.factory"
 import queries from "src/database/queries"
 import loggerFactory from "src/logger/logger.factory"
+import migratorFactory from "src/migrator/migrator.factory"
 import repositories from "src/repositories"
 import router from "src/routes"
 import packageJSON from "../../package.json"
@@ -58,6 +59,10 @@ export default async function serverFactory({
   })
   server.diContainer.register({
     db: asFunction(databaseFactory, { injectionMode: "PROXY", lifetime: "SINGLETON" }),
+  })
+
+  server.diContainer.register({
+    migrator: asFunction(migratorFactory, { injectionMode: "PROXY", lifetime: "SINGLETON" }),
   })
 
   for (const [key, value] of Object.entries(queries)) {

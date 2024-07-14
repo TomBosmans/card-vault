@@ -4,6 +4,7 @@ import type { Config } from "./config/config.factory"
 import type Database from "./database/database.type"
 import type queries from "./database/queries"
 import type { Logger } from "./logger/logger.factory"
+import type Migrator from "./migrator/migrator"
 import type repositories from "./repositories"
 import serverFactory from "./server/server.factory"
 
@@ -17,6 +18,7 @@ type ServerCradle = Instances<typeof queries> &
     config: Config
     logger: Logger
     db: Database
+    migrator: Migrator
   }
 
 declare module "@fastify/awilix" {
